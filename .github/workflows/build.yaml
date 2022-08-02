@@ -1,23 +1,20 @@
 name: Build with Docker and AWS
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
-jobs:
-  
-  
-  
+jobs:  
   build:  
-    runs-on: ubuntu-latest
-     
+    runs-on: ubuntu-latest     
     steps:
     - 
       uses: actions/checkout@v3
       with:
           fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
-    - name: SonarCloud Scan
+    - 
+      name: SonarCloud Scan
       uses: SonarSource/sonarcloud-github-action@v1.6
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB}}
