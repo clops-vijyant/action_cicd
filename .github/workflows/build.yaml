@@ -1,13 +1,13 @@
 name: Build with Docker and AWS
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:  
   build:  
-    runs-on: [self-hosted]    
+    runs-on: self-hosted    
     steps:
     - 
       uses: actions/checkout@v3
