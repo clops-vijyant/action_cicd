@@ -53,7 +53,7 @@ jobs:
 #         TAG='action :'+ ${{date +%s}}
       with:
         push: true
-        tags: vijyant97/dev:action + ${{ steps.commit.outputs.short }}
+        tags: vijyant97/dev:action.${{ steps.commit.outputs.short }}
         
     # -
     #   name: Build
