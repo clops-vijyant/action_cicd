@@ -34,8 +34,8 @@ jobs:
     -
       name: Build and push
       uses: docker/build-push-action@v3
-      run: |
-        TAG='action :'+ ${{date +%s}}
+#       run: |
+#         TAG='action :'+ ${{date +%s}}
       with:
         push: true
         tags: vijyant/dev:${{TAG}}
