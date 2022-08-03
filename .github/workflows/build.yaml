@@ -38,7 +38,7 @@ jobs:
 #         TAG='action :'+ ${{date +%s}}
       with:
         push: true
-        tags: vijyant/dev:${{TAG}}
+        tags: vijyant97/dev:action
         
     # -
     #   name: Build
