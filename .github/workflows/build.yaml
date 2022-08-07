@@ -49,25 +49,10 @@ jobs:
     -
       name: Build and push
       uses: docker/build-push-action@v3
-#       run: |
-#         TAG='action :'+ ${{date +%s}}
       with:
         push: true
         tags: vijyant97/dev:action.${{ steps.commit.outputs.short }}
         
-    # -
-    #   name: Build
-    #   run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)  
-       
-    # -
-    #   name: Build and push
-    #   uses: docker/build-push-action@v3
-    #   with:
-    #     push: true
-    #     tags: vijyant97/dev:latest  
-    #    - name: Build the Docker image
-      # run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)  
-
     # - 
     #  name: Configure AWS credentials
     #  uses: aws-actions/configure-aws-credentials@v1
