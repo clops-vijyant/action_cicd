@@ -1,8 +1,9 @@
 name: Sonarqube
 on:
   push:
-    branches:
-      - main # or the name of your main branch
+    branches: [main] # or the name of your main branch
+  pull_request:
+    branches: [main]
 jobs:
   scan:
     name: scanner
@@ -11,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - uses: sonarsource/sonarqube-scan-action
+      - uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
