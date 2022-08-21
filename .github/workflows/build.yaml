@@ -1,27 +1,25 @@
-name: Sonarqube
+name: sonarqube 
 on:
+  # Trigger analysis when push or pull requests
   push:
-    branches: [main] # or the name of your main branch
-  pull_request:
     branches: [main]
+  pull_request:
+    branches: [main]      
+
 jobs:
-  scan:
-    name: scanner
-    runs-on: [ self-hosted , Linux ]
+  sonarqube:
+    name: SonarQube Scan
+    runs-on: [self-hosted , clops-vijyant]
     steps:
-      - uses: actions/checkout@master
-        with:
-          fetch-depth: 0
-      - uses: kitabisa/sonarqube-action@master
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        with: 
-          projectBaseDir: "src/"  
-          projectkey: actions-sonarqube
-      # If you wish to fail your job when the Quality Gate is red, uncomment the
-      # following lines. This would typically be used to fail a deployment.
-      # - uses: sonarsource/sonarqube-quality-gate-action@master
-      #   timeout-minutes: 5
-      #   env:
-      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+    - 
+      name: Checking out
+      uses: actions/checkout@master
+      with:
+        # Disabling shallow clone is recommended for improving relevancy of reporting
+        fetch-depth: 0
+    - 
+      name: SonarQube Scan
+      uses: kitabisa/sonarqube-action@v1.2.0
+      with:
+        host: ${{ secrets.SONAR_HOST_URL }}
+        login: ${{ secrets.SONAR_TOKEN }}
