@@ -29,15 +29,24 @@ jobs:
       run: mvn package -Dmaven.test.skip=true  
      
     - name: Deploy to Nexus
-      run: |        
-        mvn deploy:deploy-file 
-        -DgroupId=clops.nexus.actions 
-        -DartifactId=hello-world 
-        -Dversion=1.0 
-        -Dpackaging=jar 
-        -Dfile=./target/hello-world-1.0-SNAPSHOT.jar
-        -Durl=http://99.80.60.200:8081/repository/
+#       env:
+#         USERNAME: ${{ secrets.USERNAME }}
+        
+      run: |                
+        mkdir ~/.m2 
+        cp -r settings.xml ~/.m2/
+        mvn deploy:deploy-file
+        --settings=~/.m2/settings.xml
+        -DgeneratePom=false \
+        -DgroupId=clops.nexus.actions \
+        -DartifactId=hello-world \
+        -Dversion=1.0 \
+        -Dpackaging=jar \ 
+        -Dfile=./target/hello-world-1.0-SNAPSHOT.jar \
+        -Durl=http://99.80.60.200:8081/repository/ \
         -DrepositoryId=sample-java-app-snapshot
+      
+      
 
 #     - 
 #       name: Nexus Repository Publisher for GitHub Actions
