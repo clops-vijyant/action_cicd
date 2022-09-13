@@ -38,8 +38,7 @@ jobs:
         repository: sample-java-app-snapshot
         coordinates: groupId=clops.actions artifactId=hello-world version=1.0
         assets: extension=jar
-        filename: ./target/hello-world-1.0.jar
-
+        filename: ./target/hello-world-1.0-SNAPSHOT.jar
         
     # - name: Slack Notification
     #   uses: act10ns/slack@v1
