@@ -2,9 +2,12 @@ name: sonarqube
 on:
   # Trigger analysis when push or pull requests
   push:
-    branches: [sonarcloud]
+   # branches: [sonarcloud]
+   # branches: ['*']
+    branches: '!main'
   pull_request:
-    branches: [sonarcloud]      
+   # branches: [sonarcloud]
+    branches: ['*']
 
 jobs:
   sonarqube:
