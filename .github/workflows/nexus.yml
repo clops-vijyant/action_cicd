@@ -37,13 +37,13 @@ jobs:
         cp -r settings.xml ~/.m2/
         mvn deploy:deploy-file
         --settings=~/.m2/settings.xml
+        -Dfile=./target/hello-world-1.0-SNAPSHOT.jar \
+        -Durl=http://99.80.60.200:8081/repository/ \
         -DgeneratePom=false \
         -DgroupId=clops.nexus.actions \
         -DartifactId=hello-world \
         -Dversion=1.0 \
         -Dpackaging=jar \ 
-        -Dfile=./target/hello-world-1.0-SNAPSHOT.jar \
-        -Durl=http://99.80.60.200:8081/repository/ \
         -DrepositoryId=sample-java-app-snapshot
       
       
