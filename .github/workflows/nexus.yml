@@ -33,7 +33,7 @@ jobs:
 #         USERNAME: ${{ secrets.USERNAME }}
         
       run: |                
-        mkdir ~/.m2 
+       # mkdir ~/.m2 
         cp -r settings.xml ~/.m2/
         mvn deploy:deploy-file
         --settings=~/.m2/settings.xml
