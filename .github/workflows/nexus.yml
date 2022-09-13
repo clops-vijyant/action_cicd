@@ -26,17 +26,17 @@ jobs:
       with:
         java-version: 1.8
     - name: Build with Maven
-      run: mvn package --file pom.xml   
+      run: mvn package   
     - 
       name: Nexus Repository Publisher for GitHub Actions
       uses: sonatype-nexus-community/nexus-repo-github-action@1.0.0
       with:
-        serverUrl: http://99.80.60.200:8081/
+        serverUrl: http://99.80.60.200:8081/repository/sample-java-app-snapshot/
         username: ${{ secrets.username }}
         password: ${{ secrets.password }}
         format: maven2
         repository: sample-java-app-snapshot
-        coordinates: groupId=clops.nexus.actions artifactId=hello-world version=1.0
+        coordinates: groupId=clops.actions artifactId=hello-world version=1.0
         assets: extension=jar
         filename: ./target/hello-world-1.0.jar
 
