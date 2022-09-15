@@ -29,8 +29,7 @@ jobs:
     
     - name: Github actions Maven Build
       run: mvn -B package --file=pom.xml
-           ls -a
-           ls target/
+
 #     - run: |
 #         mvn -v
 #         mvn install
