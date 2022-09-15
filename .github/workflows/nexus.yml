@@ -27,13 +27,12 @@ jobs:
       with:
         java-version: 1.8
     
-    - name: Setup Maven Action
-      uses: s4u/setup-maven-action@v1.5.0
+    - name: Apache Maven Build Automation for Java Project
+      uses: NishkarshRaj/Maven_Actions@0.1
+
     - run: |
-        mvn clean
-        mvn compile
+        mvn -v
         mvn install
-        
     - name: Deploy to Nexus
 #       env:
 #         USERNAME: ${{ secrets.USERNAME }}
