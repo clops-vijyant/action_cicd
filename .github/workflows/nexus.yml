@@ -33,7 +33,7 @@ jobs:
     -  run: |                
         # mkdir ~/.m2 
         cp -r settings.xml ~/.m2/
-        mvn deploy
+        mvn deploy -X
 #        :deploy-file
 #         --settings=~/.m2/settings.xml
 #         -Dfile=./target/hello-world-1.0-SNAPSHOT.jar \
