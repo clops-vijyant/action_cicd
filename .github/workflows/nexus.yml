@@ -30,10 +30,10 @@ jobs:
     - name: Github actions Maven Build
       run: mvn -B package --file=pom.xml
         
-    -  run: |                
-        # mkdir ~/.m2 
-        cp -r settings.xml ~/.m2/
-        mvn deploy -X
+#     -  run: |                
+#         # mkdir ~/.m2 
+#         cp -r settings.xml ~/.m2/
+#         mvn deploy -X
 #        :deploy-file
 #         --settings=~/.m2/settings.xml
 #         -Dfile=./target/hello-world-1.0-SNAPSHOT.jar \
@@ -44,21 +44,18 @@ jobs:
 #         -Dversion=1.0 \
 #         -Dpackaging=jar \ 
 #         -DrepositoryId=sample-java-app-snapshot
-      
-      
-
-#     - 
-#       name: Nexus Repository Publisher for GitHub Actions
-#       uses: sonatype-nexus-community/nexus-repo-github-action@1.0.0
-#       with:
-#         serverUrl: http://99.80.60.200:8081/repository/
-#         username: ${{ secrets.username }}
-#         password: ${{ secrets.password }}
-#         format: maven2
-#         repository: sample-java-app-snapshot
-#         coordinates: groupId=clops.actions artifactId=hello-world version=1.0
-#         assets: extension=jar
-#         filename: ./target/hello-world-1.0-SNAPSHOT.jar
+               
+    - name: Nexus Repository Publisher for GitHub Actions
+      uses: sonatype-nexus-community/nexus-repo-github-action@1.0.0
+      with:
+        serverUrl: http://99.80.60.200:8081/repository/sample-java-app-snapshot
+        username: ${{ secrets.NEXUS_USER }}
+        password: ${{ secrets.NEXUS_PASS }}
+        format: maven2
+        repository: sample-java-app-snapshot
+        coordinates: groupId=clops.actions artifactId=hello-world version=1.0
+        assets: extension=jar
+        filename: ./target/hello-world-1.0-SNAPSHOT.jar
         
     # - name: Slack Notification
     #   uses: act10ns/slack@v1
