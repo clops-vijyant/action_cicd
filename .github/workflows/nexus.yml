@@ -48,12 +48,12 @@ jobs:
     - name: Nexus Repository Publisher for GitHub Actions
       uses: sonatype-nexus-community/nexus-repo-github-action@1.0.0
       with:
-        serverUrl: http://99.80.60.200:8081/repository/sample-java-app-snapshot
+        serverUrl: http://99.80.60.200:8081/repository/sample-java-app-snapshot/
         username: ${{ secrets.NEXUS_USER }}
         password: ${{ secrets.NEXUS_PASS }}
         format: maven2
         repository: sample-java-app-snapshot
-        coordinates: groupId=clops.actions artifactId=hello-world version=1.0
+        coordinates: groupId=clops.gitact.vijyant artifactId=hello-world version=1.0-SNAPSHOT
         assets: extension=jar
         filename: ./target/hello-world-1.0-SNAPSHOT.jar
         
