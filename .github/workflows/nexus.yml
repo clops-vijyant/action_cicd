@@ -48,8 +48,7 @@ jobs:
     - name: Nexus Repository Publisher for GitHub Actions
       uses: sonatype-nexus-community/nexus-repo-github-action@1.0.0
       with:
-        serverUrl: http://99.80.60.200:8081
-        #/repository/sample-java-app-snapshot/
+        serverUrl: http://99.80.60.200:8081/repository/sample-java-app-snapshot/
         username: admin
         #${{ secrets.NEXUS_USER }}
         password: Vijyant@7
