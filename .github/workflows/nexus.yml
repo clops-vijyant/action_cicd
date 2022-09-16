@@ -39,6 +39,8 @@ jobs:
       with:
         nexus_username: ${{ secrets.nexus_username }}
         nexus_password: ${{ secrets.nexus_password }}
+        directory: ./target/hello-world-1.0-SNAPSHOT.jar
+        server_id: http://99.80.60.200:8081/repository/sample-java-app-snapshot/
         
 #     -  run: |                
 #         # mkdir ~/.m2 
