@@ -28,19 +28,19 @@ jobs:
     - name: Github actions Maven Build
       run: mvn -B package --file=pom.xml
       
-    - run: pwd
-          mkdir ~/.m2/
-          ls ~/.m2/
-          cp -r settings.xml ~/.m2/
+#     - run: pwd
+#           mkdir ~/.m2/
+#           ls ~/.m2/
+#           cp -r settings.xml ~/.m2/
             
     -  run: |                
         mvn deploy:deploy-file
-        #--settings=~/.m2/settings.xml
-        -Dfile=./target/hello-world-1.0-SNAPSHOT.jar \
-        -Durl=http://99.80.60.200:8081/repository/sample-java-app-snapshot/ \
+        --settings=~/.m2/settings.xml
+        -Dfile="./target/hello-world-1.0-SNAPSHOT.jar" \
+        -Durl="http://99.80.60.200:8081/repository/sample-java-app-snapshot/" \
         -DgeneratePom=false \
         #-DgroupId=clops.gitact.vijyant \
         #-DartifactId=hello-world \
         #-Dversion=1.0 \
         #-Dpackaging=jar \ 
-        -DrepositoryId=snapshots              
+        -DrepositoryId="snapshots"              
