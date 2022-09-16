@@ -35,7 +35,7 @@ jobs:
             
     -  run: |                
         mvn deploy:deploy-file
-        --settings=~/.m2/settings.xml
+        #--settings=~/.m2/settings.xml
         -Dfile=./target/hello-world-1.0-SNAPSHOT.jar \
         -Durl=http://99.80.60.200:8081/repository/sample-java-app-snapshot/ \
         -DgeneratePom=false \
