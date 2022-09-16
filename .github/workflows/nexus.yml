@@ -43,15 +43,16 @@ jobs:
 #         server_id: http://99.80.60.200:8081/repository/sample-java-app-snapshot/
         
     -  run: |                
-        mvn deploy:deploy-file        
-        -Dfile=./target/hello-world-1.0-SNAPSHOT.jar \
-        -Durl=http://99.80.60.200:8081/repository/sample-java-app-snapshot/ \
+        mvn deploy:deploy-file
+        --settings=~/.m2/settings.xml
+        #-Dfile=./target/hello-world-1.0-SNAPSHOT.jar \
+        #-Durl=http://99.80.60.200:8081/repository/sample-java-app-snapshot/ \
         -DgeneratePom=false \
-        -DgroupId=clops.gitact.vijyant \
-        -DartifactId=hello-world \
-        -Dversion=1.0 \
-        -Dpackaging=jar \ 
-        -DrepositoryId=sample-java-app-snapshot               
+        #-DgroupId=clops.gitact.vijyant \
+        #-DartifactId=hello-world \
+        #-Dversion=1.0 \
+        #-Dpackaging=jar \ 
+        #-DrepositoryId=sample-java-app-snapshot               
 #     - name: Nexus Repository Publisher for GitHub Actions
 #       uses: sonatype-nexus-community/nexus-repo-github-action@1.0.0
 #       with:
