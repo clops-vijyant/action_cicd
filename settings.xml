@@ -8,16 +8,13 @@
       <id>repository</id>
       <username>${nexus_username}</username>
       <password>${nexus_password}</password>
-<!--       <username>${NEXUS_USER}</username>
-      <password>${NEXUS_PASS}</password> -->
+
     </server>
 
     <server>
       <id>snapshots</id>
-      <username>admin</username>
-      <password>Vijyant@7</password>
-<!--       <username>${NEXUS_USER}</username>
-      <password>${NEXUS_PASS}</password> -->
+      <username>${nexus_username}</username>
+      <password>${nexus_password}</password>
     </server>
   </servers>
 
