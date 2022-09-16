@@ -30,9 +30,9 @@ jobs:
     - name: Github actions Maven Build
       run: mvn -B package --file=pom.xml
       
-    -  run: cp -r settings.xml ~/.m2/
-            pwd
-            ls ~/.m2/
+    - run: pwd
+          ls ~/.m2/
+          cp -r settings.xml ~/.m2/
     
     - name: Release Maven package
       uses: samuelmeuli/action-maven-publish@v1
