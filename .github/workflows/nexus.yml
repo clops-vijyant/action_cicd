@@ -32,7 +32,7 @@ jobs:
       
     -  run: cp -r settings.xml ~/.m2/
             pwd
-            ls ./m2/
+            ls ~/.m2/
     
     - name: Release Maven package
       uses: samuelmeuli/action-maven-publish@v1
