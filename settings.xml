@@ -6,14 +6,18 @@
   <servers>
     <server>
       <id>repository</id>
-      <username>${NEXUS_USER}</username>
-      <password>${NEXUS_PASS}</password>
+      <username>admin</username>
+      <password>Vijyant@7</password>
+<!--       <username>${NEXUS_USER}</username>
+      <password>${NEXUS_PASS}</password> -->
     </server>
 
     <server>
       <id>snapshots</id>
-      <username>${NEXUS_USER}</username>
-      <password>${NEXUS_PASS}</password>
+      <username>admin</username>
+      <password>Vijyant@7</password>
+<!--       <username>${NEXUS_USER}</username>
+      <password>${NEXUS_PASS}</password> -->
     </server>
   </servers>
 
