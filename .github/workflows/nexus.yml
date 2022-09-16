@@ -34,29 +34,24 @@ jobs:
           ls ~/.m2/
           cp -r settings.xml ~/.m2/
     
-    - name: Release Maven package
-      uses: samuelmeuli/action-maven-publish@v1
-      with:
-        nexus_username: ${{ secrets.nexus_username }}
-        nexus_password: ${{ secrets.nexus_password }}
-        directory: ./target/hello-world-1.0-SNAPSHOT.jar
-        server_id: http://99.80.60.200:8081/repository/sample-java-app-snapshot/
+#     - name: Release Maven package
+#       uses: samuelmeuli/action-maven-publish@v1
+#       with:
+#         nexus_username: ${{ secrets.nexus_username }}
+#         nexus_password: ${{ secrets.nexus_password }}
+#         directory: ./target/hello-world-1.0-SNAPSHOT.jar
+#         server_id: http://99.80.60.200:8081/repository/sample-java-app-snapshot/
         
-#     -  run: |                
-#         # mkdir ~/.m2 
-#         cp -r settings.xml ~/.m2/
-#         mvn deploy -X
-#        :deploy-file
-#         --settings=~/.m2/settings.xml
-#         -Dfile=./target/hello-world-1.0-SNAPSHOT.jar \
-#         -Durl=http://99.80.60.200:8081/ \
-#         -DgeneratePom=false \
-#         -DgroupId=clops.nexus.actions \
-#         -DartifactId=hello-world \
-#         -Dversion=1.0 \
-#         -Dpackaging=jar \ 
-#         -DrepositoryId=sample-java-app-snapshot
-               
+    -  run: |                
+        mvn deploy:deploy-file        
+        -Dfile=./target/hello-world-1.0-SNAPSHOT.jar \
+        -Durl=http://99.80.60.200:8081/repository/sample-java-app-snapshot/ \
+        -DgeneratePom=false \
+        -DgroupId=clops.gitact.vijyant \
+        -DartifactId=hello-world \
+        -Dversion=1.0 \
+        -Dpackaging=jar \ 
+        -DrepositoryId=sample-java-app-snapshot               
 #     - name: Nexus Repository Publisher for GitHub Actions
 #       uses: sonatype-nexus-community/nexus-repo-github-action@1.0.0
 #       with:
